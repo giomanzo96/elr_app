@@ -6,8 +6,13 @@ const ejsMate = require('ejs-mate');
 const { Pool } = require('pg'); // importa il modulo pg per interagire con il database PostgreSQL. Pool è una classe che gestisce un pool di connessioni al database, consentendo di eseguire query in modo efficiente e scalabile.
 
 const pool = new Pool({  // crea un nuovo pool di connessioni al database utilizzando le variabili d'ambiente per la configurazione
-    connectionString: process.env.DATABASE_URL
-});const app = express();
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+});
+
+const app = express();
 
 
 app.engine('ejs', ejsMate); // imposta ejs-mate come motore di rendering per i file .ejs
@@ -37,19 +42,24 @@ app.get('/operations/cliente', (req, res) => {
 });
 
 app.post('/operations/cliente', async (req, res) => {
-    const { nome, cognome, telefono, email, note } = req.body;
+    try {
+        const { nome, cognome, telefono, email, note } = req.body;
 
-    const sql = `
-        INSERT INTO clienti_acquisizione 
-        (nome, cognome, telefono, email, note)
-        VALUES ($1, $2, $3, $4, $5)
-    `;
+        const sql = `
+            INSERT INTO clienti_acquisizione 
+            (nome, cognome, telefono, email, note)
+            VALUES ($1, $2, $3, $4, $5)
+        `;
 
-    const values = [nome, cognome, telefono, email, note];
+        const values = [nome, cognome, telefono, email, note];
 
-    await pool.query(sql, values);
+        await pool.query(sql, values);
 
-    res.redirect('/');
+        res.redirect('/');
+    } catch (err) {
+        console.error('Errore inserimento cliente:', err);
+        res.status(500).send('Errore durante il salvataggio del cliente');
+    }
 });
 
 app.get('/fine_demo', (req, res) => {
