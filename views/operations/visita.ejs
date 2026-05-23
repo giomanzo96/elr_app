@@ -1,0 +1,49 @@
+<% layout('layouts/boilerplate') %>
+    <div class="container">
+
+        <div class="col-6 offset-3">
+            <h1 class="text-light m-3">
+                Nuova Visita
+            </h1>
+
+            <form action="/fine_demo" method="get">
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Data
+                    </label>
+
+                    <input type="date" class="form-control" name="data">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Immobile
+                    </label>
+
+                    <input type="text" class="form-control" name="immobile" placeholder="Inserisci immobile">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Cliente
+                    </label>
+
+                    <input type="text" class="form-control" name="cliente" placeholder="Inserisci cliente">
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label text-light">
+                        Note
+                    </label>
+
+                    <textarea class="form-control" rows="4" name="note" placeholder="Inserisci note"></textarea>
+                </div>
+
+                <button class="btn btn-warning fw-bold px-4 py-2" type="submit">
+                    Salva Visita
+                </button>
+
+            </form>
+        </div>
+    </div>

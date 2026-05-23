@@ -1,0 +1,53 @@
+<% layout('layouts/boilerplate') %>
+    <div class="container">
+
+        <div class="col-6 offset-3">
+            <h1 class="text-light m-3">
+                Nuovo Cliente
+            </h1>
+
+            <form action="/operations/cliente" method="POST">
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Nome
+                    </label>
+
+                    <input type="text" class="form-control" name="nome" placeholder="Inserisci nome">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Cognome
+                    </label>
+
+                    <input type="text" class="form-control" name="cognome" placeholder="Inserisci cognome">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Telefono
+                    </label>
+                    <input type="tel" class="form-control" name="telefono" placeholder="Inserisci telefono">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Email
+                    </label>
+                    <input type="email" class="form-control" name="email" placeholder="Inserisci email">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label text-light">
+                        Note
+                    </label>
+                    <textarea class="form-control" id="note" name="note" rows="5" cols="40"
+                        placeholder="Aggiungi note"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-info mt-5">Registra Cliente</button>
+            </form>
+        </div>
+    </div>
+    </div>

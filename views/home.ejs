@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') %>
+
+<div class="container">
+    <div class="col-6 offset-3">
+        <h1 class="text-light m-3">Operations</h1>
+        <form action="/operations/index" method="get">
+            <label class="form-label mt-2 text-light" for="user">Agente</label>
+            <input type="text" name="user" placeholder="Nome agente" id="user" class="form-control">
+            <label class="form-label mt-2 text-light" for="pass">Password</label>
+            <input type="password" name="pass" placeholder="Password" id="pass" class="form-control">
+            <button type="submit" id="" class="btn btn-info mt-5">Entra</button>
+        </form>
+    </div>
+</div>
