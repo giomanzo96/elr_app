@@ -3,6 +3,9 @@ require('dotenv').config(); // carica le variabili d'ambiente dal file .env
 const express = require('express');
 const path = require('path'); // importa il modulo path per gestire i percorsi dei file
 const ejsMate = require('ejs-mate');
+const session = require("express-session");
+const flash = require("connect-flash");
+
 const { Pool } = require('pg'); // importa il modulo pg per interagire con il database PostgreSQL. Pool è una classe che gestisce un pool di connessioni al database, consentendo di eseguire query in modo efficiente e scalabile.
 
 const pool = new Pool({  // crea un nuovo pool di connessioni al database utilizzando le variabili d'ambiente per la configurazione
@@ -19,6 +22,20 @@ if (!process.env.DATABASE_URL) {
     console.error('DATABASE_URL non configurata. Aggiungila tra le variabili d ambiente di Vercel.');
 }
 
+
+app.use(session({
+    secret: "devoripensaremeglioalsegretodellasessione",
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use(flash());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    next();
+});
 
 app.engine('ejs', ejsMate); // imposta ejs-mate come motore di rendering per i file .ejs
 app.set('view engine', 'ejs'); // imposta ejs come motore di rendering predefinito
@@ -60,10 +77,11 @@ app.post('/operations/cliente', async (req, res) => {
         const values = [nome, cognome, telefono, email, note];
 
         await pool.query(sql, values);
-
-        res.redirect('/');
+        req.flash("success", "Cliente registrato con successo!");
+        res.redirect('/operations/index');
     } catch (err) {
         console.error('Errore inserimento cliente:', err);
+        req.flash("error", "Errore durante il salvataggio del cliente.");
         res.status(500).send('Errore durante il salvataggio del cliente.');
     }
 
