@@ -1,3 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
+
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/public/fonts/avenir-next-thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/public/fonts/avenir-next-ultralight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/public/fonts/avenir-next-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/public/fonts/avenir-next-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/public/fonts/avenir-next-demibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Avenir Next";
+  src: url("/public/fonts/avenir-next-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
-    background-color: #0A2342;
+    background-color: #ffffff;
+    font-family: 'Avenir Next', sans-serif;
+}
+
+h1 {
+    font-family: 'Avenir Next', sans-serif;
+    font-weight: 500;
+}
+.operations-page {
+    min-height: calc(100vh - 120px);
+    padding: 28px 22px 32px;
+    background: #ffffff;
+    color: #000000;
+}
+
+.operations-panel {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+.operations-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.operations-title {
+    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+    font-size: 1.55rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #000000;
+    margin: 0;
+}
+
+.operations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.operations-list form {
+    margin: 0;
+}
+
+.operation-btn {
+    width: 100%;
+    min-height: 58px;
+    padding: 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #ffffff;
+    color: #000000;
+
+    border: 1px solid #000000;
+    border-radius: 0;
+
+    font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.operation-btn:hover {
+    background: #000000;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.10);
+}
+
+.operation-btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.operation-arrow {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1;
+}
+
+/* iPhone piccoli */
+@media (max-width: 390px) {
+    .operations-page {
+        padding-top: 20px;
+    }
+
+    .operations-title {
+        font-size: 1.35rem;
+    }
+
+    .operation-btn {
+        min-height: 54px;
+        font-size: 0.85rem;
+    }
+
+    .operations-list {
+        gap: 10px;
+    }
 }

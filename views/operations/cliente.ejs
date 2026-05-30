@@ -1,15 +1,15 @@
 <% layout('layouts/boilerplate') %>
     <div class="container">
 
-        <div class="col-6 offset-3">
-            <h1 class="text-light m-3">
+        <div class="col-10 offset-1 col-md-6 offset-md-3">
+            <h1 class="text-dark m-3">
                 Nuovo Cliente
             </h1>
 
             <form action="/operations/cliente" method="POST">
 
                 <div class="mb-3">
-                    <label class="form-label text-light">
+                    <label class="form-label text-dark">
                         Nome
                     </label>
 
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label text-light">
+                    <label class="form-label text-dark">
                         Cognome
                     </label>
 
@@ -25,21 +25,21 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label text-light">
+                    <label class="form-label text-dark">
                         Telefono
                     </label>
                     <input type="tel" class="form-control" name="telefono" placeholder="Inserisci telefono">
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label text-light">
+                    <label class="form-label text-dark">
                         Email
                     </label>
                     <input type="email" class="form-control" name="email" placeholder="Inserisci email">
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label text-light">
+                    <label class="form-label text-dark">
                         Note
                     </label>
                     <textarea class="form-control" id="note" name="note" rows="5" cols="40"
