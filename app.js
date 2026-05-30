@@ -13,6 +13,11 @@ const pool = new Pool({  // crea un nuovo pool di connessioni al database utiliz
 });
 
 const app = express();
+const PORT = process.env.PORT || 3000;
+
+if (!process.env.DATABASE_URL) {
+    console.error('DATABASE_URL non configurata. Aggiungila tra le variabili d ambiente di Vercel.');
+}
 
 
 app.engine('ejs', ejsMate); // imposta ejs-mate come motore di rendering per i file .ejs
@@ -58,8 +63,9 @@ app.post('/operations/cliente', async (req, res) => {
         res.redirect('/');
     } catch (err) {
         console.error('Errore inserimento cliente:', err);
-        res.status(500).send('Errore durante il salvataggio del cliente');
+        res.status(500).send('Errore durante il salvataggio del cliente.');
     }
+
 });
 
 app.get('/fine_demo', (req, res) => {
@@ -67,6 +73,10 @@ app.get('/fine_demo', (req, res) => {
 });
 
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server in ascolto sulla porta ${process.env.PORT}`);
-});
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server in ascolto sulla porta ${PORT}`);
+    });
+}
+
+module.exports = app;
