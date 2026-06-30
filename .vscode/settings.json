@@ -1,0 +1,45 @@
+{
+    "terminal.integrated.profiles.windows": {
+        "python": {
+            "path": "cmd.exe",
+            "args": [
+                "/k",
+                "cd /d ${workspaceFolder} && .venv\\Scripts\\activate.bat"
+            ],
+            "overrideName": true
+        },
+        "psql": {
+            "path": "cmd.exe",
+            "args": [
+                "/k",
+                "cd /d \"${workspaceFolder}\" && call .vscode\\scripts\\psql-env.bat"
+            ],
+            "overrideName": true
+        },
+        "supabase": {
+            "path": "cmd.exe",
+            "args": [
+                "/k",
+                "cd /d ${workspaceFolder}"
+            ],
+            "overrideName": true
+        },
+        "vercel": {
+            "path": "cmd.exe",
+            "args": [
+                "/k",
+                "cd /d ${workspaceFolder}"
+            ],
+            "overrideName": true
+        },
+        "git": {
+            "path": "C:\\Program Files\\Git\\bin\\bash.exe",
+            "args": [
+                "--login",
+                "-i"
+            ],
+            "overrideName": true
+        }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+}

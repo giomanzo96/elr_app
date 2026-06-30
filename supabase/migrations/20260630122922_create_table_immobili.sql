@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS immobili (
+    id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    codice TEXT NOT NULL UNIQUE,
+    agente TEXT NOT NULL,
+    incarico TEXT NOT NULL,
+    scadenza DATE NOT NULL
+);
+
+
