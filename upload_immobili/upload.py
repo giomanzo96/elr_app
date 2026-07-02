@@ -61,7 +61,7 @@ try:
             cur.executemany(insert_sql, rows)
 
         conn.commit()
-        logger.info(f"Data uploaded to Supabase table '{TABLE_NAME}'.")
+        logger.info(f"Data correctly uploaded to Supabase table '{TABLE_NAME}'.")
 except Exception:
     logger.exception(f"Data upload to Supabase failed.")
     raise
